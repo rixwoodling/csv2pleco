@@ -4,7 +4,7 @@ from pathlib import Path
 
 # Usage
 if len(sys.argv) != 2:
-    print("python3 csv2tsv.py <input.csv>")
+    print("python3 csv2pleco.py <input.csv>")
     sys.exit(1)
 
 # Input
@@ -41,12 +41,12 @@ if not rows:
 first_word = rows[0][0]
 
 # Output Path
-tsv_dir = input_path.parent.parent / "tsv"
+txt_dir = input_path.parent.parent / "txt"
 
-if tsv_dir.exists():
-    output_path = tsv_dir / f"{first_word}.tsv"
+if txt_dir.exists():
+    output_path = txt_dir / f"{first_word}.txt"
 else:
-    output_path = input_path.with_name(f"{first_word}.tsv")
+    output_path = input_path.with_name(f"{first_word}.txt")
 
 # Write TSV
 with open(output_path, "w", encoding="utf-8") as f:
